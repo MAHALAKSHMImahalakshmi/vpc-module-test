@@ -131,12 +131,6 @@ terraform destroy
 - Commit your changes early—version control saves you from breaking things.
 - Practice iterative improvement: add, test, debug, refactor, repeat!
 
-## 💬 Why I Made This Public
-
-- To document **real learning**—mistakes, fixes, best practices—so others grow faster, too
-- To **attract recruiters** and potential mentors by showcasing genuine project work
-- To invite contributions, questions, and feedback from the DevOps community
-
 
 
 - ⭐ Star and share if you learned something!
