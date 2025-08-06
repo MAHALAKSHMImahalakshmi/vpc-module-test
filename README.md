@@ -36,6 +36,21 @@ Welcome! This repository demonstrates how to **test and validate a reusable AWS 
 - **State changes:** Practice updating, rolling back, or deleting infra safely
 - **Debugging:** Every error is logged—with the fix and a “lesson learned”
 - **Clean-up:** Responsible teardown (`terraform destroy`) to avoid AWS bills
+- 
+## 🎛️ Module Inputs
+
+When using the VPC Terraform module, you need to provide some input variables to customize your AWS network setup. Here’s a quick breakdown of the main inputs you’ll configure in your Terraform code:
+
+| Input Variable   | Required | Description                                                      | Default        |
+|------------------|----------|------------------------------------------------------------------|---------------|
+| 🏷️ `project`     | Yes      | Specify your project name to tag resources and identify infra.    | -             |
+| 🌍 `environment` | Yes      | Specify the environment (e.g., dev, stage, prod) for organization.| -             |
+| 🌐 `cidr_block`  | No       | The CIDR block for your VPC networking.                          | 10.0.0.0/16   |
+
+> **Tip:**  
+> Set these variables in your `terraform.tfvars` or directly in your module block for easy configuration and tagging across all resources!
+
+---
 
 ## 🚦 Step-by-Step Workflow
 
@@ -85,21 +100,8 @@ After deployment, see IDs, subnet ARNs, and route tables instantly in your termi
 terraform destroy
 ```
 
-Always keep your free tier safe—easy clean-up by design.
 
-## 🔎 Example Main.tf Snippet
 
-```hcl
-module "vpc" {
-  source = "git::https://github.com/MAHALAKSHMImahalakshmi/terraform-aws-vpc.git"
-  project     = "roboshop"
-  environment = "dev"
-  cidr_block  = "10.0.0.0/16"
-  public_subnet_cidrs  = ["10.0.1.0/24", "10.0.2.0/24"]
-  private_subnet_cidrs = ["10.0.3.0/24", "10.0.4.0/24"]
-  database_subnet_cidrs = ["10.0.5.0/24", "10.0.6.0/24"]
-}
-```
 
 ## 🚫 Mistakes, Debugging & Lessons Learned
 
